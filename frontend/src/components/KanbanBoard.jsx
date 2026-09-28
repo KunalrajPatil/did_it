@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useOrganization } from '@clerk/clerk-react'
 import TaskColumn from './TaskColumn'
 import {createTask, updateTask, deleteTask} from '../services/api'
-
+import TaskForm from './TaskForm'
 
 const STATUSES = ['pending','started','completed']
 
@@ -93,7 +93,9 @@ function KanbanBoard({tasks, setTasks, getToken}){
                 ))}
             </div>
 
-                {showForm && null}
+                {showForm && <TaskForm task={editingTask} 
+                onSubmit={handleSubmit}
+                onCancel={handleCancel}/>}
     </div>
 
 
